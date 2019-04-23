@@ -8,6 +8,7 @@
         <h2>合作伙伴</h2>
         <img src="@/assets/img/title-line.png" alt>
       </div>
+
       <div class="partner-list">
         <ul>
           <li>
@@ -267,6 +268,15 @@ export default {
     100% {
         transform: scale(1.4);
         opacity: 0.2;
+    }
+}
+// 媒体查询
+@media only screen and (max-width:768px) {
+    .partner .partner-list ul li{
+        width: 50%;
+    }
+    .map{
+        transform: scale(0.6)
     }
 }
 </style>

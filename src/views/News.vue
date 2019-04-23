@@ -69,28 +69,28 @@
         <!-- why -->
         <div class="home-why">
           <el-row class="why-box">
-            <el-col :span="6">
+            <el-col :span='6'>
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span='6'>
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span='6'>
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span="6">
+            <el-col :span='6'>
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
@@ -129,7 +129,14 @@
           <h2>观点</h2>
           <img src="@/assets/img/title-line.png" alt>
           <div class="gd-list">
-            <el-carousel :initial-index=currentIndex>
+            <el-carousel
+              ref="carousel"
+              :interval="5000"
+              arrow="never"
+              indicator-position="none"
+              height="150px"
+              @change="change"
+            >
               <el-carousel-item v-for="(item,index) in gdlist" :key="index">
                 <li>
                   <h3>{{item.title}}</h3>
@@ -141,7 +148,12 @@
       </div>
       <div class="indicators">
         <ul>
-          <li class="active" v-for="(item,index) in gdlist" :key="index" @mouseenter="mouseenter(index)"></li>
+          <li
+            :class="currentIndex == index ?'active':''"
+            v-for="(item,index) in gdlist"
+            :key="index"
+            @mouseenter="mouseenter(index)"
+          ></li>
         </ul>
       </div>
     </div>
@@ -156,25 +168,31 @@ export default {
       gdlist: [
         {
           title:
-            "文章的标题的文章的标题的文章的标题文章的标题的文章的标题的文章",
+            "文章的标题的文章的标题的文章的标题文章的标题章的标题文章的标章的标题文章的标章的标题文章的标的文章的标题的文章",
           img: ""
         },
         {
-          title: "222222222222222",
+          title:
+            "章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标",
           img: ""
         },
         {
-          title: "333333333333333333333",
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
           img: ""
         }
       ]
     };
   },
-  methods:{
-    mouseenter(index){
+  methods: {
+    mouseenter(index) {
       console.log(index);
-      
-this.currentIndex = index;
+
+      this.currentIndex = index;
+      this.$refs.carousel.setActiveItem(index);
+    },
+    change(index) {
+      this.currentIndex = index;
     }
   }
 };
@@ -364,6 +382,7 @@ this.currentIndex = index;
       width: 20px;
       height: 14px;
       opacity: 1;
+      //   transition: 0.5s;
     }
   }
 }
