@@ -17,40 +17,15 @@
         </div>
         <div class="list">
           <ul>
-            <li class="active">
+            <li
+              :class="currentIndexNews == index?'active':''"
+              v-for="(item,index) in newsList"
+              :key="index"
+              @mouseenter="mouseenternews(index)"
+            >
               <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你弄ID彼此哦的吧你从对比你ID彼此哦的吧你从对比弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <h3 class="line-clamp1">弄ID彼此哦的吧你从对比你哦…</h3>
-                <span>2017.6.26</span>
+                <h3 class="line-clamp1">{{item.title}}</h3>
+                <span>{{item.date}}</span>
               </a>
             </li>
           </ul>
@@ -69,28 +44,28 @@
         <!-- why -->
         <div class="home-why">
           <el-row class="why-box">
-            <el-col :span='6'>
+            <el-col :span="6">
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span='6'>
+            <el-col :span="6">
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span='6'>
+            <el-col :span="6">
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题</h3>
                 <p>2018.10.31</p>
               </div>
             </el-col>
-            <el-col :span='6'>
+            <el-col :span="6">
               <div class="item">
                 <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
                 <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
@@ -165,6 +140,39 @@ export default {
   data() {
     return {
       currentIndex: 0,
+      currentIndexNews: 0,
+      newsList: [
+        {
+          title:
+            "文章的标题的文章的标题的文章的标题文章的标题章的标题文章的标章的标题文章的标章的标题文章的标的文章的标题的文章",
+          date: "2019.02.23"
+        },
+        {
+          title:
+            "章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标",
+          date: "2019.02.23"
+        },
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          date: "2019.02.23"
+        },
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          date: "2019.02.23"
+        },
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          date: "2019.02.23"
+        },
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          date: "2019.02.23"
+        }
+      ],
       gdlist: [
         {
           title:
@@ -193,6 +201,10 @@ export default {
     },
     change(index) {
       this.currentIndex = index;
+    },
+    //
+    mouseenternews(index) {
+      this.currentIndexNews = index;
     }
   }
 };
@@ -271,16 +283,16 @@ export default {
           justify-content: space-between;
           align-items: center;
           font-size: @fz20;
-
           color: @c666;
           h3 {
-            display: flex;
+            // display: flex;
             align-items: center;
+            padding-right: 10px;
           }
           h3::before {
             content: "";
             display: inline-block;
-            display: block;
+            // display: block;
             width: 0;
             height: 0;
             margin-right: 10px;

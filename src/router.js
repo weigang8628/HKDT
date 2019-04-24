@@ -45,13 +45,18 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      redirect: { name: 'why' },
+      redirect: { name: 'hkdt' },
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
       children: [
         {
-          path: 'why',
-          name: 'why',
-          component: () => import(/* webpackChunkName: "Why" */ './views/Why.vue'),
+          path: 'hkdt',
+          name: 'hkdt',
+          component: () => import(/* webpackChunkName: "Hkdt" */ './views/Hkdt.vue'),
+        },
+        {
+          path: 'exchange',
+          name: 'exchange',
+          component: () => import(/* webpackChunkName: "Exchange" */ './views/Exchange.vue'),
         }
       ]
     },

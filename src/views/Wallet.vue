@@ -28,7 +28,7 @@
         </div>
         <div class="consultation">
           <div class="aside-title">
-            <h3>新鲜咨询</h3>
+            <h3>新鲜资讯</h3>
           </div>
 
           <div class="consultation-list">
@@ -183,7 +183,11 @@
       // margin-top: -100px;
       display: flex;
       .item {
+        max-width: 40%;
         .pic {
+          img{
+            max-width: 100%;
+          }
         }
         .text {
           text-align: center;
@@ -205,6 +209,7 @@
       margin-top: 0;
       .text {
         padding-right: 100px;
+      flex: 1;
         h1 {
           font-size: @fz30;
           color: @c333;
@@ -222,6 +227,12 @@
           font-size: @fz20;
           color: @c999;
           line-height: 36px;
+        }
+      }
+      .pic{
+        flex: 1;
+        img{
+          max-width: 100%;
         }
       }
     }

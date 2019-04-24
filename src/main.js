@@ -13,6 +13,8 @@ Vue.use(Footer);
 // 全局底部
 import Banner from './components/Banner'
 Vue.use(Banner);
+// 苹方字体
+import './assets/font/font.css'
 // element
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';

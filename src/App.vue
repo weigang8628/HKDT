@@ -27,7 +27,14 @@ export default {
   methods: {
     // 动态导航透明度
     scrollHeightFn() {
-      this.opacity = (document.documentElement.scrollTop / 100) * 0.2;
+      console.log(this.$router);
+      
+      if(true){
+this.opacity = (document.documentElement.scrollTop / 100) * 0.2;
+      }else{
+        this.opacity =1
+      }
+      
     }
   }
 };

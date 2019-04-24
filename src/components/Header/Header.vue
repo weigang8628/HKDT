@@ -1,7 +1,7 @@
  <template>
   <div class="header" :style="{background:'rgba(26,26,26,'+opacity+')'}">
     <!-- {{i18ndata}}
-    {{opacity}} -->
+    {{opacity}}-->
     <div class="header-content">
       <!-- logo -->
       <div class="logo">
@@ -12,18 +12,42 @@
       <!-- 导航 -->
       <div class="nav">
         <ul>
-          <li v-for="(item,key) in i18ndata.nav" :key="key">
-            <router-link :to="'/'+key">{{item}}</router-link>
+          <li>
+            <router-link to="/home">{{i18ndata.nav.home}}</router-link>
+          </li>
+          <li>
+            <router-link to="/book">{{i18ndata.nav.book}}</router-link>
+          </li>
+          <li>
+            <router-link to="/wallet">{{i18ndata.nav.wallet}}</router-link>
+          </li>
+          <li v-popover:popover1 @mouseover="mouseover" @mouseout="mouseout">
+            <router-link to="/about">{{i18ndata.nav.about.title}}</router-link>
+            <i :class="iconrotate==true?'active':''" class="el-icon-arrow-down"></i>
           </li>
         </ul>
+        <!-- 关于子菜单 -->
+        <el-popover ref="popover1" placement="bottom-start" width="150" trigger="hover">
+          <div class="about-list">
+            <ul>
+              <li>
+                <router-link to="/about/hkdt">{{$t('nav.about.list.hkdt')}}</router-link>
+              </li>
+              <li>
+                <router-link to="/news">{{$t('nav.about.list.news')}}</router-link>
+              </li>
+              <li>
+                <router-link to="/about/exchange">{{$t('nav.about.list.ahzjys')}}</router-link>
+              </li>
+            </ul>
+          </div>
+        </el-popover>
       </div>
       <!-- 语言切换 -->
-      <div class="language" @click="visible = !visible">
-        <el-button slot="reference" type="text">
-          {{crrentLanguage}}
-          <i class="el-icon-arrow-down"></i>
-        </el-button>
-        <el-popover placement="bottom" width="150" trigger="manual" v-model="visible">
+      <div class="language" v-popover:popover2>
+        {{crrentLanguage}}
+        <i class="el-icon-arrow-down"></i>
+        <el-popover ref="popover2" placement="bottom" width="150" trigger="hover">
           <div class="language-list">
             <ul>
               <li v-for="(item,index) in language" :key="index" @click="languageClick(item)">
@@ -32,13 +56,6 @@
             </ul>
           </div>
         </el-popover>
-        <!-- <el-menu>
-    <el-submenu index="9">
-        <template slot="title">简体中文</template>
-        <el-menu-item index="9-1">简体中文</el-menu-item>
-        <el-menu-item index="9-2">English</el-menu-item>
-      </el-submenu>
-        </el-menu>-->
       </div>
     </div>
   </div>
@@ -46,17 +63,18 @@
 
 <script>
 export default {
-  name:'',
+  name: "",
   props: {
-  opacity: {
+    opacity: {
       type: Number,
-      default: function () {
-        return 1
+      default: function() {
+        return 1;
       }
     }
   },
   data() {
     return {
+      iconrotate: false,
       i18ndata: {},
       activeIndex: "1",
       activeIndex2: "1",
@@ -91,6 +109,15 @@ export default {
       this.$i18n.locale = item.locale; //切换语言
       this.i18ndata = this.$i18n.messages[item.locale];
       console.log(this.$i18n.messages[item.locale]);
+    },
+    mouseover() {
+      this.iconrotate = true;
+    },
+    mouseout() {
+      this.iconrotate = false;
+    },
+    show() {
+      debugger;
     }
   }
 };
@@ -126,9 +153,11 @@ h1 {
     opacity: 0.8;
     ul {
       display: flex;
-      width: 60%;
+      width: 450px;
       justify-content: space-between;
       li {
+        text-align: center;
+        color: @c-fff;
         a {
           color: @c-fff;
         }
@@ -138,24 +167,29 @@ h1 {
   .language {
     border: @border-white;
     border-radius: 50px;
-    // padding: 0 30px;
+    font-size: 18px;
+    color: #ffffff;
     width: 160px;
     height: 40px;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     span {
       font-size: @fz18;
     }
-    .el-button--text {
-      color: @c-fff;
-      i {
-        color: @c-fff;
-      }
+    i {
+      margin-left: 10px;
     }
   }
 }
 .language-list ul li {
   margin: 10px 0 10px 0;
   text-align: center;
+  font-size: @fz20;
+}
+.about-list ul li {
+  margin: 10px 0 10px 0;
+  text-align: left;
   font-size: @fz20;
 }
 </style>

@@ -9,21 +9,17 @@
         <div class="line">
 
         </div>
-        <h1>HKDT白皮书</h1>
+        <h1>{{$t('book.title')}}</h1>
         <div class="content">
           <p>
-            「 我们致力于实现在任何地点，任何时间自由实现法币与数字资
-            产的点对点无缝支付，打造数字资产多样化应用场景，让资产链
-            通世界、链通未来。」
+            {{$t('book.info')}}
           </p>
           <p>
-            「 我们致力于实现在任何地点，任何时间自由实现法币与数字资
-            产的点对点无缝支付，打造数字资产多样化应用场景，让资产链
-            通世界、链通未来。」
+            {{$t('book.info2')}}
           </p>
         </div>
         <div class="download">
-          <a href>点击下载</a>
+          <a href> {{$t('book.download')}}</a>
         </div>
       </div>
     </div>

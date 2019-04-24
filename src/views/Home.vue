@@ -6,13 +6,13 @@
     <div class="container-full">
       <div class="home-news container">
         <div class="title">
-          <img src="@/assets/img/xinwen-icon.png" alt> 新闻
+          <img src="@/assets/img/xinwen-icon.png" alt> {{$t('honmenews.title')}}
         </div>
         <div class="list">
           <a href="#">新闻的列表在这里显示新闻的列表</a>
         </div>
         <div class="more">
-          <router-link to="news">更多新闻 >></router-link>
+          <router-link to="news">{{$t('honmenews.more')}} >></router-link>
         </div>
       </div>
     </div>
@@ -20,55 +20,53 @@
     <div class="section-bc">
       <!-- 通用title -->
       <div class="home-title">
-        <h2>HKDT 设计理念</h2>
+        <h2>{{$t('homeidea.title')}}</h2>
         <img src="@/assets/img/title-line.png" alt>
-        <h3>高效链接法定货币和数字资产</h3>
+        <h3>{{$t('homeidea.title2')}}</h3>
       </div>
       <!-- 理念list -->
       <div class="container home-idea">
         <el-row>
-          <el-col :span="8">
+          <el-col :xs='12' :sm='12' :md='8'>
             <div class="item">
               <img src="@/assets/img/i-1.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item1.title')}}</h3>
+              <p>{{$t('homeidea.list.item1.info')}}</p>
             </div>
           </el-col>
-          <el-col :span="8">
-            <div class="item active">
+          <el-col :xs='12' :sm='12' :md='8'>
+            <div class="item">
               <img src="@/assets/img/i-2.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item2.title')}}</h3>
+              <p>{{$t('homeidea.list.item2.info')}}</p>
             </div>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs='12' :sm='12' :md='8'>
             <div class="item">
               <img src="@/assets/img/i-3.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item3.title')}}</h3>
+              <p>{{$t('homeidea.list.item3.info')}}</p>
             </div>
           </el-col>
-        </el-row>
-        <el-row>
-          <el-col :span="8">
+          <el-col :xs='12' :sm='12' :md='8'>
             <div class="item">
               <img src="@/assets/img/i-4.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item4.title')}}</h3>
+              <p>{{$t('homeidea.list.item4.info')}}</p>
             </div>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs='12' :sm='12' :md='8'>
             <div class="item">
               <img src="@/assets/img/i-5.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item5.title')}}</h3>
+              <p>{{$t('homeidea.list.item5.info')}}</p>
             </div>
           </el-col>
-          <el-col :span="8">
+          <el-col :xs='12' :sm='12' :md='8'>
             <div class="item">
               <img src="@/assets/img/i-6.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>锚定港元（1HKDT=1 港元）的强兑换体系，不受到数字资产市场长短期波动行为的影响。</p>
+              <h3>{{$t('homeidea.list.item6.title')}}</h3>
+              <p>{{$t('homeidea.list.item6.info')}}</p>
             </div>
           </el-col>
         </el-row>
@@ -78,42 +76,42 @@
     <div class="section">
       <!-- 通用title -->
       <div class="home-title">
-        <h2>为什么锚定港币？</h2>
+        <h2>{{$t('homewhy.title')}}</h2>
         <img src="@/assets/img/title-line.png" alt>
       </div>
       <!-- why -->
       <div class="container home-why">
         <el-row>
-          <el-col :span="6">
+          <el-col :xs='12' :sm='12' :md='6'>
             <div class="item">
               <img src="@/assets/img/w-1.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>香港连接世界与中国大陆；</p>
-              <p>同时也能辐射东南亚，天然具有国际化的优势</p>
+              <h3>{{$t('homewhy.list.item1.title')}}</h3>
+              <p>{{$t('homewhy.list.item1.info')}}</p>
+              <p>{{$t('homewhy.list.item1.info2')}}</p>
             </div>
           </el-col>
-          <el-col :span="6">
+          <el-col :xs='12' :sm='12' :md='6'>
             <div class="item">
               <img src="@/assets/img/w-2.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>香港连接世界与中国大陆；</p>
-              <p>同时也能辐射东南亚，天然具有国际化的优势</p>
+              <h3>{{$t('homewhy.list.item2.title')}}</h3>
+              <p>{{$t('homewhy.list.item2.info')}}</p>
+              <p>{{$t('homewhy.list.item2.info2')}}</p>
             </div>
           </el-col>
-          <el-col :span="6">
+          <el-col :xs='12' :sm='12' :md='6'>
             <div class="item">
               <img src="@/assets/img/w-3.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>香港连接世界与中国大陆；</p>
-              <p>同时也能辐射东南亚，天然具有国际化的优势</p>
+              <h3>{{$t('homewhy.list.item3.title')}}</h3>
+              <p>{{$t('homewhy.list.item3.info')}}</p>
+              <p>{{$t('homewhy.list.item3.info2')}}</p>
             </div>
           </el-col>
-          <el-col :span="6">
+          <el-col :xs='12' :sm='12' :md='6'>
             <div class="item">
               <img src="@/assets/img/w-4.png" alt>
-              <h3>1:1强兑换，稳定</h3>
-              <p>香港连接世界与中国大陆；</p>
-              <p>同时也能辐射东南亚，天然具有国际化的优势</p>
+              <h3>{{$t('homewhy.list.item4.title')}}</h3>
+              <p>{{$t('homewhy.list.item4.info')}}</p>
+              <p>{{$t('homewhy.list.item4.info2')}}</p>
             </div>
           </el-col>
         </el-row>
@@ -123,7 +121,7 @@
     <div class="section-bc partner">
       <!-- 合作伙伴 -->
       <div class="home-title">
-        <h2>合作伙伴</h2>
+        <h2>{{$t('homepartner.title')}}</h2>
         <img src="@/assets/img/title-line.png" alt>
       </div>
       <div class="container partner-list">
@@ -185,7 +183,7 @@
     <div class="section media">
       <!-- 合作媒体 -->
       <div class="home-title">
-        <h2>合作媒体</h2>
+        <h2>{{$t('homemedia.title')}}</h2>
         <img src="@/assets/img/title-line.png" alt>
       </div>
       <div class="container media-list">
@@ -433,21 +431,6 @@ export default {
       }
     }
   }
-}
-.el-carousel__item h3 {
-  color: #475669;
-  font-size: 14px;
-  opacity: 0.75;
-  line-height: 150px;
-  margin: 0;
-}
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
 }
 </style>
 

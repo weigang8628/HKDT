@@ -4,27 +4,35 @@
       <div class="footer-logo">
         <img src="@/assets/img/logo.png" alt>
       </div>
+      <!-- 关于 -->
       <div class="footer-about">
-        <div class="title">关于我们</div>
+        <div class="title">{{$t('foot.about.title')}}</div>
         <div class="list">
           <ul>
-            <li>商务合作：chenx@hkdt.org</li>
-            <li>商务合作：chenx@hkdt.org</li>
-            <li>商务合作：chenx@hkdt.org</li>
+            <li>{{$t('foot.about.list.busess')}}</li>
+            <li>{{$t('foot.about.list.media')}}</li>
+            <li>{{$t('foot.about.list.feedback')}}</li>
           </ul>
         </div>
       </div>
+      <!-- 媒体 -->
       <div class="footer-media">
-        <div class="title">HKDT官方媒体</div>
+        <div class="title">{{$t('foot.media.title')}}</div>
         <div class="list">
           <ul>
-            <li slot="reference">
+            <li v-popover:popover>
               <div class="icon">
                 <img src="@/assets/img/f-1.png" alt>
               </div>
-              <div class="text">官方微信订阅</div>
+              <div class="text">{{$t('foot.media.list.account')}}</div>
+              <el-popover ref="popover" placement="bottom-start" width="150" trigger="hover">
+                <img
+                  style="width:100%;"
+                  src="@/assets/img/hkdt.png"
+                >
+              </el-popover>
             </li>
-            
+
             <li>
               <div class="icon">
                 <img src="@/assets/img/f-2.png" alt>
@@ -35,39 +43,40 @@
               <div class="icon">
                 <img src="@/assets/img/f-3.png" alt>
               </div>
-              <div class="text">Twitter</div>
+              <div class="text">LinkedIn</div>
             </li>
             <li>
               <div class="icon">
                 <img src="@/assets/img/f-4.png" alt>
               </div>
-              <div class="text">Twitter</div>
+              <div class="text">{{$t('foot.media.list.support')}}</div>
             </li>
             <li>
               <div class="icon">
                 <img src="@/assets/img/f-5.png" alt>
               </div>
-              <div class="text">Twitter</div>
+              <div class="text">Instagram</div>
             </li>
             <li>
               <div class="icon">
                 <img src="@/assets/img/f-6.png" alt>
               </div>
-              <div class="text">Twitter</div>
+              <div class="text">Medium</div>
             </li>
             <li>
               <div class="icon">
                 <img src="@/assets/img/f-7.png" alt>
               </div>
-              <div class="text">Twitter</div>
+              <div class="text">{{$t('foot.media.list.weibo')}}</div>
             </li>
           </ul>
         </div>
       </div>
+      <!-- 钱包 -->
       <div class="footer-wallet">
-        <div class="title">HKDT钱包下载</div>
+        <div class="title">{{$t('foot.wallet.title')}}</div>
         <div class="list">
-          <img src="http://res.cjyun.org/a/10146/201808/68b5b1d742cb00efa00804dd87bada05.png" alt>
+          <img src="@/assets/img/hkdt.png" alt>
         </div>
       </div>
     </div>
@@ -79,14 +88,12 @@
 export default {
   data() {
     return {
-      msg: "全局footer"
+      footData:{}
     };
   },
-  methods:{
-    showfn(){
-      console.log('移入');
-      
-      
+  methods: {
+    showfn() {
+      console.log("移入");
     }
   }
 };
@@ -136,8 +143,10 @@ export default {
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
+          
           li {
             display: flex;
+            flex: auto;
             font-size: @fz18;
             margin: 10px 0;
             width: 160px;
