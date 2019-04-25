@@ -3,81 +3,80 @@
     <div class="hkdt">
       <div class="hkdt-left">
         <div class="aside-title">
-          <h3>导航速查</h3>
+          <h3>{{$t('hkdt.nav.title')}}</h3>
         </div>
         <div class="aside-nav">
           <ul>
             <li class="active">
-              <a href>HKDT简介</a>
+              <a href='#a1'>{{$t('hkdt.nav.list.title')}}</a>
             </li>
             <li>
-              <a href>应用场景</a>
-            </li>
-            <li>
-              <a href>*******</a>
-            </li>
-            <li>
-              <a href>*******</a>
+              <a href='#a2'>{{$t('hkdt.nav.list.title2')}}</a>
             </li>
           </ul>
         </div>
         <div class="consultation">
           <div class="aside-title">
-            <h3>新鲜资讯</h3>
+            <h3>{{$t('hkdt.information.title')}}</h3>
           </div>
-
           <div class="consultation-list">
-            <p>HKDT 是 Anchor公司基于港元、面向全球发行的稳定、透明、安全的数字资产。是依靠一流的区块链技术，用足额的现金类资产为支撑，以一比一的比例，锚定港元的强兑换体系,科技进步带来的红利。</p>
+            <p>{{$t('hkdt.information.info')}}</p>
             <div class="btn">
-              <a href>查看</a>
+              <a href="javascript:;">{{$t('hkdt.information.look')}}</a>
             </div>
           </div>
         </div>
       </div>
       <!-- 右侧 -->
       <div class="hkdt-right">
-        <h2>什么是HKDT?</h2>
+        <!-- 什么是hkdt -->
+        <h2 id="a1">{{$t('hkdt.whathkdt.title')}}</h2>
         <div class="whathkdt">
-          <p>HKDT 是 Anchor公司基于港元、面向全球发行的稳定、透明、安全的数字资产。是依靠一流的区块链技术，用足额的现金类资产为支撑，以一比一的比例，锚定港元的强兑换体系。它高效地链接了法币和数字资产，帮助人们快速、便捷地融入数字世界，更好享受科技进步带来的红利。</p>
-          <p>HKDT是基于以太坊ERC20的稳定数字货币系统，能兼容所有以太坊钱包。它通过智能合约，实现了在港币入账确认后生成相应的HKDT。在HKDT中，赎回港币时会自动销毁相应HKDT，以动态保持它与港币的1 : 1锚定关系。</p>
+          <p>
+            <a href="#1">{{$t('hkdt.whathkdt.info')}}</a>
+          </p>
+          <p>
+            <a href="#2">{{$t('hkdt.whathkdt.info2')}}</a>
+          </p>
         </div>
-        <h2>什么地方能用到HKDT?</h2>
+        <!-- 什么地方能用到hkdt -->
+        <h2 id="a2">{{$t('hkdt.usehkdt.title')}}</h2>
         <div class="usehkdt www">
           <div class="item">
-            <img src="@/assets/img/why-1.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-1.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-2.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-2.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title2')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-3.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-3.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title3')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-4.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title4')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-5.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title5')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-6.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title6')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-7.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title7')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-8.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title8')}}</h3>
           </div>
           <div class="item">
-            <img src="@/assets/img/why-4.png" alt="" srcset="">
-            <h3>游戏</h3>
+            <img src="@/assets/img/why-9.png" alt srcset>
+            <h3>{{$t('hkdt.usehkdt.list.title9')}}</h3>
           </div>
         </div>
       </div>
@@ -127,18 +126,22 @@
           a::before {
             content: "";
             display: inline-block;
-
             border-width: 8px 0 8px 8px;
             border-style: solid;
             border-color: transparent transparent transparent #c98938;
             margin-right: 40px;
           }
         }
-        li.active {
+        li:hover {
           a {
             color: #c98938;
           }
         }
+        // li.active {
+        //   a {
+        //     color: #c98938;
+        //   }
+        // }
       }
     }
     .consultation {
@@ -171,7 +174,7 @@
     width: 70%;
     h2 {
       color: #c98938;
-      font-size: @fz30
+      font-size: @fz30;
     }
     // 什么是hkdt
     .whathkdt {
@@ -188,13 +191,13 @@
       }
     }
     // hkdt使用
-    .usehkdt{
+    .usehkdt {
       display: flex;
       flex-wrap: wrap;
-      justify-content:center;
+      justify-content: center;
       margin-top: 57px;
-      .item{
-        background-image: url('../assets/img/dbx6.png');
+      .item {
+        background-image: url("../assets/img/dbx6.png");
         width: 180px;
         height: 200px;
         margin: 10px;
@@ -203,18 +206,18 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        img{
+        img {
           // width: auto;
           width: 40px;
         }
-        h3{
+        h3 {
           margin-top: 15px;
-          font-size: 18
+          font-size: @fz18;
+          text-align: center;
         }
       }
     }
   }
 }
-
 </style>
 

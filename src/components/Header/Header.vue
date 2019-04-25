@@ -1,28 +1,31 @@
- <template>
+<template>
   <div class="header" :style="{background:'rgba(26,26,26,'+opacity+')'}">
-    <!-- {{i18ndata}}
-    {{opacity}}-->
-    <div class="header-content">
+    <div class="header-content container">
       <!-- logo -->
       <div class="logo">
         <router-link to="/">
-          <img src="../../assets/img/logo.png" alt srcset>
+          <img src="@/assets/img/logo.png" alt srcset>
         </router-link>
       </div>
       <!-- 导航 -->
       <div class="nav">
         <ul>
-          <li>
-            <router-link to="/home">{{i18ndata.nav.home}}</router-link>
+          <li :class="currentRouter == '/'?'active':''">
+            <router-link to="/home">{{$t('nav.home')}}</router-link>
           </li>
-          <li>
-            <router-link to="/book">{{i18ndata.nav.book}}</router-link>
+          <li :class="currentRouter == '/book'?'active':''">
+            <router-link to="/book">{{$t('nav.book')}}</router-link>
           </li>
-          <li>
-            <router-link to="/wallet">{{i18ndata.nav.wallet}}</router-link>
+          <li :class="currentRouter == '/wallet'?'active':''">
+            <router-link to="/wallet">{{$t('nav.wallet')}}</router-link>
           </li>
-          <li v-popover:popover1 @mouseover="mouseover" @mouseout="mouseout">
-            <router-link to="/about">{{i18ndata.nav.about.title}}</router-link>
+          <li
+            :class="currentRouter == '/news'?'active':''"
+            v-popover:popover1
+            @mouseover="mouseover"
+            @mouseout="mouseout"
+          >
+            <router-link to="/about">{{$t('nav.about.title')}}</router-link>
             <i :class="iconrotate==true?'active':''" class="el-icon-arrow-down"></i>
           </li>
         </ul>
@@ -45,7 +48,7 @@
       </div>
       <!-- 语言切换 -->
       <div class="language" v-popover:popover2>
-        {{crrentLanguage}}
+        {{$t('locale')}}
         <i class="el-icon-arrow-down"></i>
         <el-popover ref="popover2" placement="bottom" width="150" trigger="hover">
           <div class="language-list">
@@ -79,45 +82,49 @@ export default {
       activeIndex: "1",
       activeIndex2: "1",
       visible: false,
-      crrentLanguage: "简体中文",
       language: [
         {
           title: "简体中文",
           locale: "zh_CN"
         },
         {
-          title: "繁体中文",
-          locale: "zh_CN"
+          title: "繁體中文",
+          locale: "zh_HK"
         },
         {
           title: "English",
           locale: "en_US"
         }
-      ]
+      ],
+      currentRouter: ""
     };
   },
   created() {
-    this.i18ndata = this.$i18n.messages["zh_CN"];
+    // this.i18ndata = sessionStorage.getItem('locale');
+    this.currentRouter = this.$route.path;
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
     languageClick(item) {
-      this.crrentLanguage = item.title;
       this.visible = false;
       this.$i18n.locale = item.locale; //切换语言
-      this.i18ndata = this.$i18n.messages[item.locale];
+      // this.i18ndata = this.$i18n.messages[item.locale];
+      sessionStorage.setItem('locale',item.locale)//存入缓存
       console.log(this.$i18n.messages[item.locale]);
+      
     },
     mouseover() {
       this.iconrotate = true;
     },
     mouseout() {
       this.iconrotate = false;
-    },
-    show() {
-      debugger;
+    }
+  },
+  watch: {
+    $route(to, from) {
+      this.currentRouter = this.$route.path;
     }
   }
 };
@@ -140,7 +147,7 @@ h1 {
   }
   .header-content {
     display: flex;
-    width: 80%;
+    // width: 80%;
     height: 100px;
     margin: 0 auto;
     align-items: center;
@@ -150,7 +157,6 @@ h1 {
     display: flex;
     justify-content: center;
     font-size: @fz18;
-    opacity: 0.8;
     ul {
       display: flex;
       width: 450px;
@@ -158,9 +164,17 @@ h1 {
       li {
         text-align: center;
         color: @c-fff;
+        opacity: 0.8;
         a {
           color: @c-fff;
         }
+        i{
+          margin-left: 5px;
+        }
+      }
+      li.active {
+        opacity: 1;
+        font-size: 20px;
       }
     }
   }

@@ -3,73 +3,26 @@
     <div class="container">
       <div class="card news-list-title">
         <ul>
-          <li class="active">新闻</li>
-          <li>行业</li>
+          <li :class="currentType=='news'?'active':''" @click="getNewsList('news')">{{$t('news.news.title')}}</li>
+          <li :class="currentType=='industry'?'active':''" @click="getNewsList('industry')">{{$t('news.industry.title')}}</li>
         </ul>
       </div>
     </div>
     <div class="container news-list-box">
       <!-- list列表 -->
-      <div class="item">
-        <a href="#">
+      <div class="item" v-for="(item,index) in newsList" :key="index">
+        <a href="javascript:;">
           <div class="pic">
             <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
           </div>
           <div class="text">
-            <h3 class="line-clamp1">文章标题文章标题文章标题文章标题文章标题</h3>
-            <p class="line-clamp4">文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内</p>
-            <div class="date">2019-03-07 11:28:02</div>
+            <h3 class="line-clamp1">{{item.title}}</h3>
+            <p class="line-clamp4">{{item.info}}</p>
+            <div class="date">{{item.date}}</div>
           </div>
         </a>
       </div>
-      <div class="item">
-        <a href="#">
-          <div class="pic">
-            <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-          </div>
-          <div class="text">
-            <h3>文章标题文章标题文章标题文章标题文章标题</h3>
-            <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内</p>
-            <div class="date">2019-03-07 11:28:02</div>
-          </div>
-        </a>
-      </div>
-      <div class="item">
-        <a href="#">
-          <div class="pic">
-            <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-          </div>
-          <div class="text">
-            <h3>文章标题文章标题文章标题文章标题文章标题</h3>
-            <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内</p>
-            <div class="date">2019-03-07 11:28:02</div>
-          </div>
-        </a>
-      </div>
-      <div class="item">
-        <a href="#">
-          <div class="pic">
-            <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-          </div>
-          <div class="text">
-            <h3>文章标题文章标题文章标题文章标题文章标题</h3>
-            <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容内容文章内容文章内容文章内容文章内容文章内容内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内</p>
-            <div class="date">2019-03-07 11:28:02</div>
-          </div>
-        </a>
-      </div>
-      <div class="item">
-        <a href="#">
-          <div class="pic">
-            <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-          </div>
-          <div class="text">
-            <h3>文章标题文章标题文章标题文章标题文章标题</h3>
-            <p>文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内</p>
-            <div class="date">2019-03-07 11:28:02</div>
-          </div>
-        </a>
-      </div>
+      
       <!-- 分页 -->
       <div class="page">
         <el-button type="text">首页</el-button>
@@ -79,6 +32,76 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      currentType:this.$route.query.type,
+      newsList:[
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+        {
+          title:'文章标题文章标题文章标题文章标题文章标题',
+          info:'文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内容文章内',
+          date:'2019-03-07 11:28:02',
+        },
+      ]
+    }
+  },
+  created(){
+    
+  },
+  methods:{
+    // 获取新闻列表
+    getNewsList(type){
+      this.currentType = type
+      this.$router.push({
+        path:'news-list',
+        query:{
+          type:type
+        }
+      })
+      if(type == 'news'){
+        // 新闻
+        this.getlist()
+
+      }else if(type == 'industry'){
+        // 行业
+
+      }
+
+    },
+    // 接口获取数据
+    getlist(){
+
+    }
+  },
+}
+</script>
+
 <style lang="less" scoped>
 .news-list {
   padding-top: 100px;
@@ -108,7 +131,7 @@
       li.active::after {
         content: "";
         display: inline-block;
-        width: 50px;
+        width: 100%;
         height: 4px;
         background-color: @c-primary;
         border-radius: 5px;

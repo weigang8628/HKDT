@@ -1,4 +1,5 @@
 module.exports = {
+    locale:'Englist',
     nav: {
         home: 'Homepage',
         book: 'White Paper',
@@ -12,12 +13,12 @@ module.exports = {
             }
         }
     },
-    banner:{
-        'item1':{
-            'title':'HKDT',
-            'title2':'Technology Improves Digital Life',
-            'title3':'',
-            'title4':'Global, Safe, Convenient',
+    banner: {
+        'item1': {
+            'title': 'HKDT',
+            'title2': 'Technology Improves Digital Life',
+            'title3': '',
+            'title4': 'Global, Safe, Convenient',
         },
     },
     foot: {
@@ -43,9 +44,9 @@ module.exports = {
         }
     },
     // 首页新闻
-    honmenews:{
-        'title':'News',
-        'more':'read more',
+    honmenews: {
+        'title': 'News',
+        'more': 'read more',
     },
     // 首页设计理念
     homeidea: {
@@ -114,16 +115,97 @@ module.exports = {
     },
     // 白皮书
     book: {
-        'title':'HKDT White Paper',
-        'info':'We are developing a stable, secure, convenient and reliable encrypted digital asset (stablecoin), supported by sufficient cash assets, while relying on first-class blockchain technology.',
-        'info2':'We are committed to building a sound global payment settlement and asset management system that can freely realize point-to-point seamless transaction of fiat currency and digital assets at any place and at any time, and to create diversified application scenarios, allowing asset chains to connect to the world and link to the future.',
-        'download':'Download'
+        'title': 'HKDT White Paper',
+        'info': 'We are developing a stable, secure, convenient and reliable encrypted digital asset (stablecoin), supported by sufficient cash assets, while relying on first-class blockchain technology.',
+        'info2': 'We are committed to building a sound global payment settlement and asset management system that can freely realize point-to-point seamless transaction of fiat currency and digital assets at any place and at any time, and to create diversified application scenarios, allowing asset chains to connect to the world and link to the future.',
+        'download': 'Download'
     },
-    login: {
-        'title': 'Software system',
-        'username': 'Please enter the user name',
-        'password': 'Please enter your password',
-        'login': 'Login',
-        'language': 'Please select language'
+    // 钱包页
+    wallet: {
+        'nav': {
+            'title': 'Quick Navigation',
+            'list': {
+                'title': 'Installation Instructions',
+                'title2': 'First step',
+                'title3': 'Second step',
+                'title4': 'Third step',
+                'title5': 'Fourth step',
+            }
+        },
+        'information': {
+            'title': 'xinxianzixun',
+            'info': '(未翻译)HKDT 是 Anchor公司基于港元、面向全球发行的稳定、透明、安全的数字资产。是依靠一流的区块链技术，用足额的现金类资产为支撑，以一比一的比例，锚定港元的强兑换体系,科技进步带来的红利。',
+            'look': 'look'
+        },
+        'title': 'Scan the code to install the app. ',
+        'title2': ' How to install APP on iPhone ? ',
+        'step1': {
+            'title': 'First step',
+            'info': 'After the App is successfully installed, click the icon. If the “Untrusted Enterprise Developer” prompt appears, please add it in “Settings” in the phone. After the confirmation, open the App again to use it normally.',
+        },
+        'step2': {
+            'title': 'Second step',
+            'info': 'Open "Settings - General - Device Management" in your phone.',
+        },
+        'step3': {
+            'title': 'Third step',
+            'info': 'Click "Trust" to confirm the trust, return to the desktop, open the APP again, and you can use it.',
+        },
+        'step4': {
+            'title': 'Fourth step',
+            'info': 'After successful installation, you can open the app directly on the desktop.',
+        },
+    },
+    // 关于我们-什么是hkdt
+    hkdt: {
+        'nav': {
+            'title': 'Quick Navigation',
+            'list': {
+                'title': '(未翻译)',
+                'title2': '(未翻译)',
+            }
+        },
+        'information': {
+            'title': 'xinxianzixun',
+            'info': '(未翻译)HKDT 是 Anchor公司基于港元、面向全球发行的稳定、透明、安全的数字资产。是依靠一流的区块链技术，用足额的现金类资产为支撑，以一比一的比例，锚定港元的强兑换体系,科技进步带来的红利。',
+            'look': 'look'
+        },
+        'whathkdt': {
+            'title': 'What is HKDT?',
+            'info': 'HKDT is a stable, secure, and transparent stablecoin pegging to Hong Kong dollars, issued by Anchor Financial Technology Development Limited. It is supported by sufficient cash assets and relies on first-class blockchain technology, creating a strong 1:1 exchange system. HKDT freely and efficiently connects fiat currencies with digital assets, helping people to integrate into digital asset world in order to enjoy the benefits brought by technological advancement.',
+            'info2': 'HKDT is a digital asset based on the Ethereum ERC20 standard. Through smart contracts, when the user deposits Hong Kong dollars, the corresponding equal amount of HKDT is being generated. When the user redeems the Hong Kong dollar, the corresponding amount of HKDT is being destroyed, which maintains the 1:1 exchange rate between HKDT and Hong Kong dollar.'
+        },
+        'usehkdt': {
+            'title': 'Where can HKDT be used?',
+            'list': {
+                'title': 'Gaming',
+                'title2': 'Financial Management',
+                'title3': 'Digital Asset Exchange Business',
+                'title4': 'Lending and Wealth',
+                'title5': 'Management',
+                'title6': 'Insurance',
+                'title7': 'Games & Entertainment',
+                'title8': 'Travel & Shopping',
+                'title9': 'Cross-border Services',
+            }
+        }
+    },
+    // 关于我们-news
+    news: {
+        'news': {
+            'title': 'News',
+            'more': 'read more',
+        },
+        'industry': {
+            'title': 'Industry',
+            'more': 'read more',
+        },
+        'video': {
+            'title': 'Videos',
+            'more': 'read more',
+        },
+        'comments': {
+            'title': 'Comments',
+        }
     },
 }

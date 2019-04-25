@@ -5,36 +5,35 @@
     <div class="container wallet">
       <div class="wallet-left">
         <div class="aside-title">
-          <h3>导航速查</h3>
+          <h3>{{$t('wallet.nav.title')}}</h3>
         </div>
         <div class="aside-nav">
           <ul>
             <li class="active">
-              <a href>第一步</a>
+              <a href>{{$t('wallet.nav.list.title')}}</a>
             </li>
             <li>
-              <a href>第一步</a>
+              <a href>{{$t('wallet.nav.list.title2')}}</a>
             </li>
             <li>
-              <a href>第一步</a>
+              <a href>{{$t('wallet.nav.list.title3')}}</a>
             </li>
             <li>
-              <a href>第一步</a>
+              <a href>{{$t('wallet.nav.list.title4')}}</a>
             </li>
             <li>
-              <a href>第一步</a>
+              <a href>{{$t('wallet.nav.list.title5')}}</a>
             </li>
           </ul>
         </div>
         <div class="consultation">
           <div class="aside-title">
-            <h3>新鲜资讯</h3>
+            <h3>{{$t('wallet.information.title')}}</h3>
           </div>
-
           <div class="consultation-list">
-            <p>HKDT 是 Anchor公司基于港元、面向全球发行的稳定、透明、安全的数字资产。是依靠一流的区块链技术，用足额的现金类资产为支撑，以一比一的比例，锚定港元的强兑换体系,科技进步带来的红利。</p>
+            <p>{{$t('wallet.information.info')}}</p>
             <div class="btn">
-              <a href>查看</a>
+              <a href>{{$t('wallet.information.look')}}</a>
             </div>
           </div>
         </div>
@@ -44,10 +43,10 @@
         <!-- 第一步 -->
         <div class="stepbox step1">
           <div class="text">
-            <h1>手机安装直接扫码下载APP即可</h1>
-            <div class="title">「 苹果手机如何安装app？」</div>
-            <h3>第一步</h3>
-            <p>APP安装成功后，点击图标，若出现“未授信任的企业级开发者”提示，请您在手机里的“设置”中操作授信。授信成功后，再次点击APP，即可正常使用。</p>
+            <h1>{{$t('wallet.title')}}</h1>
+            <div class="title">{{$t('wallet.title2')}}</div>
+            <h3>{{$t('wallet.step1.title')}}</h3>
+            <p>{{$t('wallet.step1.info')}}</p>
           </div>
           <div class="pic">
             <img src="@/assets/img/step-1.png" alt srcset>
@@ -60,8 +59,8 @@
               <img src="@/assets/img/step-2.png" alt srcset>
             </div>
             <div class="text">
-              <h3>第二步</h3>
-              <p>打开手机里的“设置-通用-设备管理”。</p>
+              <h3>{{$t('wallet.step2.title')}}</h3>
+            <p>{{$t('wallet.step2.info')}}</p>
             </div>
           </div>
         </div>
@@ -69,11 +68,11 @@
         <div class="stepbox step3">
           <div class="item">
             <div class="pic">
-              <img src="@/assets/img/step-2.png" alt srcset>
+              <img src="@/assets/img/step-3.png" alt srcset>
             </div>
             <div class="text">
-              <h3>第三步</h3>
-              <p>打开手机里的“设置-通用-设备管理”。</p>
+              <h3>{{$t('wallet.step3.title')}}</h3>
+            <p>{{$t('wallet.step3.info')}}</p>
             </div>
           </div>
         </div>
@@ -81,11 +80,11 @@
         <div class="stepbox step4">
           <div class="item">
             <div class="pic">
-              <img src="@/assets/img/step-2.png" alt srcset>
+              <img src="@/assets/img/step-4.png" alt srcset>
             </div>
             <div class="text">
-              <h3>第四步</h3>
-              <p>打开手机里的“设置-通用-设备管理”。</p>
+              <h3>{{$t('wallet.step4.title')}}</h3>
+            <p>{{$t('wallet.step4.info')}}</p>
             </div>
           </div>
         </div>

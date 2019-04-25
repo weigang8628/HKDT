@@ -5,7 +5,7 @@
     <div class="section partner">
       <!-- 合作伙伴 -->
       <div class="home-title">
-        <h2>合作伙伴</h2>
+        <h2>{{$t('homepartner.title')}}</h2>
         <img src="@/assets/img/title-line.png" alt>
       </div>
 

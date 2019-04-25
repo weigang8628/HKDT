@@ -19,7 +19,7 @@
           </p>
         </div>
         <div class="download">
-          <a href> {{$t('book.download')}}</a>
+          <a href="@/assets/img/banner1.png" download="@/assets/img/banner1.png"> {{$t('book.download')}}</a>
         </div>
       </div>
     </div>

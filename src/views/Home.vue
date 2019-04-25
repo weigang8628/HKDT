@@ -3,18 +3,9 @@
     <!-- banner -->
     <Banner></Banner>
     <!-- 新闻  -->
+
     <div class="container-full">
-      <div class="home-news container">
-        <div class="title">
-          <img src="@/assets/img/xinwen-icon.png" alt> {{$t('honmenews.title')}}
-        </div>
-        <div class="list">
-          <a href="#">新闻的列表在这里显示新闻的列表</a>
-        </div>
-        <div class="more">
-          <router-link to="news">{{$t('honmenews.more')}} >></router-link>
-        </div>
-      </div>
+      <News :newList="newList"></News>
     </div>
     <!-- hkdt设计理念 -->
     <div class="section-bc">
@@ -27,42 +18,44 @@
       <!-- 理念list -->
       <div class="container home-idea">
         <el-row>
-          <el-col :xs='12' :sm='12' :md='8'>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-1.png" alt>
               <h3>{{$t('homeidea.list.item1.title')}}</h3>
               <p>{{$t('homeidea.list.item1.info')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='8'>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-2.png" alt>
               <h3>{{$t('homeidea.list.item2.title')}}</h3>
               <p>{{$t('homeidea.list.item2.info')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='8'>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-3.png" alt>
               <h3>{{$t('homeidea.list.item3.title')}}</h3>
               <p>{{$t('homeidea.list.item3.info')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='8'>
+        </el-row>
+        <el-row>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-4.png" alt>
               <h3>{{$t('homeidea.list.item4.title')}}</h3>
               <p>{{$t('homeidea.list.item4.info')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='8'>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-5.png" alt>
               <h3>{{$t('homeidea.list.item5.title')}}</h3>
               <p>{{$t('homeidea.list.item5.info')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='8'>
+          <el-col :xs="24" :sm="24" :md="8">
             <div class="item">
               <img src="@/assets/img/i-6.png" alt>
               <h3>{{$t('homeidea.list.item6.title')}}</h3>
@@ -82,7 +75,7 @@
       <!-- why -->
       <div class="container home-why">
         <el-row>
-          <el-col :xs='12' :sm='12' :md='6'>
+          <el-col :xs="24" :sm="24" :md="6">
             <div class="item">
               <img src="@/assets/img/w-1.png" alt>
               <h3>{{$t('homewhy.list.item1.title')}}</h3>
@@ -90,7 +83,7 @@
               <p>{{$t('homewhy.list.item1.info2')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='6'>
+          <el-col :xs="24" :sm="24" :md="6">
             <div class="item">
               <img src="@/assets/img/w-2.png" alt>
               <h3>{{$t('homewhy.list.item2.title')}}</h3>
@@ -98,7 +91,7 @@
               <p>{{$t('homewhy.list.item2.info2')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='6'>
+          <el-col :xs="24" :sm="24" :md="6">
             <div class="item">
               <img src="@/assets/img/w-3.png" alt>
               <h3>{{$t('homewhy.list.item3.title')}}</h3>
@@ -106,7 +99,7 @@
               <p>{{$t('homewhy.list.item3.info2')}}</p>
             </div>
           </el-col>
-          <el-col :xs='12' :sm='12' :md='6'>
+          <el-col :xs="24" :sm="24" :md="6">
             <div class="item">
               <img src="@/assets/img/w-4.png" alt>
               <h3>{{$t('homewhy.list.item4.title')}}</h3>
@@ -245,68 +238,30 @@
 </template>
 
 <script>
-
-
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import News from "@/components/Home/News.vue";
 
 export default {
   name: "home",
-  mounted(){
+  data() {
+    return {
+      newList: [
+        {
+          title: "1234234243",
+          url: "http://"
+        }
+      ]
+    };
   },
+  created() {},
+  mounted() {},
+  methods: {},
   components: {
-    HelloWorld
+    News
   }
 };
 </script>
 <style lang="less" scoped>
-// 新闻列表
-.home-news {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-  .list {
-    flex: 1;
-    display: flex;
-    padding-left: 50px;
-    font-size: @fz24;
-    a::before {
-      content: "";
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: @c333;
-      margin-right: 15px;
-    }
-  }
-  .title {
-    display: flex;
-    align-items: center;
-    color: @c-primary;
-    font-size: @fz22;
-    img {
-      margin-right: 10px;
-    }
-  }
-  .more {
-    font-size: @fz20;
-    border-left: 1px solid #333333;
-    padding-left: 20px;
-  }
-  // .more::before{
-  //     content: '';
-  //     display: inline-block;
-  //     width: 2px;
-  //     height: 25px;
-  //     // border-radius: 50%;
-  //     background-color: @c333;
-  //     position: absolute;
-  //     margin-left: -10px;
-
-  //   }
-}
 // 设计理念
 .home-idea {
   padding: 50px;

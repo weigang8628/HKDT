@@ -6,14 +6,26 @@
     <!-- 新闻 -->
     <div class="container section">
       <div class="news-title">
-        <h3>新闻</h3>
+        <h3>{{$t('news.news.title')}}</h3>
         <span>
-          <router-link to="news-list?type=industry">查看更多>></router-link>
+          <router-link to="news-list?type=news">{{$t('news.news.more')}}>></router-link>
         </span>
       </div>
       <div class="news-list-box">
         <div class="pic">
-          <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg">
+          <div class="block">
+            <el-carousel
+              ref="carouselNews"
+              :interval="5000"
+              indicator-position="none"
+              @change="changeNews"
+            >
+              <el-carousel-item v-for="item in 4" :key="item">
+                <!-- <h3>{{ item }}</h3> -->
+                <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
+              </el-carousel-item>
+            </el-carousel>
+          </div>
         </div>
         <div class="list">
           <ul>
@@ -21,9 +33,10 @@
               :class="currentIndexNews == index?'active':''"
               v-for="(item,index) in newsList"
               :key="index"
-              @mouseenter="mouseenternews(index)"
+              @mouseenter="mouseenterNews(index)"
+              @click="goArticle(item.id)"
             >
-              <a href="#">
+              <a href="javascript:;">
                 <h3 class="line-clamp1">{{item.title}}</h3>
                 <span>{{item.date}}</span>
               </a>
@@ -36,40 +49,21 @@
     <div class="container-full section-bc">
       <div class="container">
         <div class="news-title">
-          <h3>行业</h3>
+          <h3>{{$t('news.industry.title')}}</h3>
           <span>
-            <router-link to="news-list?type=industry">查看更多>></router-link>
+            <router-link to="news-list?type=industry">{{$t('news.industry.more')}}>></router-link>
           </span>
         </div>
         <!-- why -->
         <div class="home-why">
           <el-row class="why-box">
-            <el-col :span="6">
-              <div class="item">
-                <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-                <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
-                <p>2018.10.31</p>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="item">
-                <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-                <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
-                <p>2018.10.31</p>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="item">
-                <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-                <h3 class="line-clamp2">文章标题文章标题</h3>
-                <p>2018.10.31</p>
-              </div>
-            </el-col>
-            <el-col :span="6">
-              <div class="item">
-                <img src="http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg" alt>
-                <h3 class="line-clamp2">文章标题文章标题文章标题文章标题文章标标题文章标标题文章标标题文章标标题文章</h3>
-                <p>2018.10.31</p>
+            <el-col :xs="12" :sm="12" :md="6" v-for="(item,index) in industryList" :key="index">
+              <div class="item" @click="goArticle(item.id)">
+                <a href="javascript:;">
+                  <img :src="item.url" alt>
+                  <h3 class="line-clamp2">{{item.title}}</h3>
+                  <p>{{item.date}}</p>
+                </a>
               </div>
             </el-col>
           </el-row>
@@ -80,9 +74,9 @@
     <div class="container-full section">
       <div class="container">
         <div class="news-title">
-          <h3>视频</h3>
+          <h3>{{$t('news.video.title')}}</h3>
           <span>
-            <a href="#">查看更多>></a>
+            <a href="#">{{$t('news.video.more')}}>></a>
           </span>
         </div>
         <div class="news-video">
@@ -96,13 +90,14 @@
         </div>
       </div>
     </div>
-    <!-- 新闻 -->
+    <!-- 观点 -->
     <div class="container-full section-bc">
       <div class="container">
         <!-- 通用title -->
         <div class="home-title">
-          <h2>观点</h2>
+          <h2>{{$t('news.comments.title')}}</h2>
           <img src="@/assets/img/title-line.png" alt>
+          <!-- 观点列表 -->
           <div class="gd-list">
             <el-carousel
               ref="carousel"
@@ -112,7 +107,7 @@
               height="150px"
               @change="change"
             >
-              <el-carousel-item v-for="(item,index) in gdlist" :key="index">
+              <el-carousel-item v-for="(item,index) in commentsList" :key="index">
                 <li>
                   <h3>{{item.title}}</h3>
                 </li>
@@ -125,7 +120,7 @@
         <ul>
           <li
             :class="currentIndex == index ?'active':''"
-            v-for="(item,index) in gdlist"
+            v-for="(item,index) in commentsList"
             :key="index"
             @mouseenter="mouseenter(index)"
           ></li>
@@ -141,39 +136,47 @@ export default {
     return {
       currentIndex: 0,
       currentIndexNews: 0,
+      // 新闻
       newsList: [
         {
           title:
             "文章的标题的文章的标题的文章的标题文章的标题章的标题文章的标章的标题文章的标章的标题文章的标的文章的标题的文章",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111111"
         },
         {
           title:
             "章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111112"
         },
         {
           title:
             "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111113"
         },
         {
           title:
             "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111114"
         },
         {
           title:
             "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111115"
         },
         {
           title:
             "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
-          date: "2019.02.23"
+          date: "2019.02.23",
+          id: "11111111116"
         }
       ],
-      gdlist: [
+      // 观点列表
+      commentsList: [
         {
           title:
             "文章的标题的文章的标题的文章的标题文章的标题章的标题文章的标章的标题文章的标章的标题文章的标的文章的标题的文章",
@@ -188,6 +191,37 @@ export default {
           title:
             "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
           img: ""
+        }
+      ],
+      // 行业新闻
+      industryList: [
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          img: "http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg",
+          date: "2018.05.13",
+          id:'1111111111'
+        },
+        {
+          title:
+            "的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          img: "http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg",
+          date: "2018.05.13",
+          id:'1111111112'
+        },
+        {
+          title:
+            "标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          img: "http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg",
+          date: "2018.05.13",
+          id:'1111111113'
+        },
+        {
+          title:
+            "33333333333章的标题文章的标章的标题文章的标章的标题文章的标章的标题文章的标3333333333",
+          img: "http://www.pptok.com/wp-content/uploads/2012/08/xunguang-4.jpg",
+          date: "2018.05.13",
+          id:'1111111114'
         }
       ]
     };
@@ -195,16 +229,29 @@ export default {
   methods: {
     mouseenter(index) {
       console.log(index);
-
       this.currentIndex = index;
       this.$refs.carousel.setActiveItem(index);
     },
     change(index) {
       this.currentIndex = index;
     },
-    //
-    mouseenternews(index) {
+    changeNews(index) {
       this.currentIndexNews = index;
+    },
+    //
+    mouseenterNews(index) {
+      this.currentIndexNews = index;
+      this.$refs.carouselNews.setActiveItem(index);
+    },
+    // 打开详情
+    goArticle(id) {
+      this.$router.push({
+        path: "article",
+        query: {
+          type: "",
+          id: id
+        }
+      });
     }
   }
 };
