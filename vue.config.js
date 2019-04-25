@@ -3,12 +3,9 @@ const path = require('path')
 module.exports = {
   //不生成map文件
   productionSourceMap: false,
-
   publicPath: BASE_URL,
-
   // 关闭eslint代码检查
   lintOnSave: false,
-
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'less',

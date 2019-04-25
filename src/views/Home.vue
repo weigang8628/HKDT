@@ -264,7 +264,6 @@ export default {
 <style lang="less" scoped>
 // 设计理念
 .home-idea {
-  padding: 50px;
   color: @c666;
   .item {
     padding: 50px 30px;
